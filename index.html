@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>vinay Portal</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+	.outer-div {
+            background-color: lightgray;
+            padding: 20px;
+        }
+
+        /* CSS for the inner div */
+        .inner1-div {
+            padding:20px;
+		float:left;
+		margin-left:200px;
+	    }
+
+        .inner2-div {
+            padding: 20px;
+            float: right; /* Float to the right */
+             }
+        
+        /* Clear float to prevent outer-div from collapsing */
+        .outer-div::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+	.inner2-div img {
+    			width: 50%; /* Adjust the image width as needed */
+			float:center;
+    			max-height: 450px; /* Set a maximum height for the image */
+			padding: 5px 10px; /* Add padding to the links for spacing */
+    			border-radius: 45%; /* Add rounded corners to the image */
+			}
+		/* CSS for the <a> tags in the navigation menu */
+nav a {
+    color: white; /* Set the text color */
+    text-decoration: none; /* Remove the default underline */
+    margin: 5px; /* Add margin for spacing between links */
+    border-radius: 5px; /* Add rounded corners to the links */
+}
+.inner1-div h1 {
+    font-size: 40px; /* Change the font size for h1 */
+}
+
+.inner1-div h4 {
+    font-size: 18px; /* Change the font size for h4 */
+}
+
+
+	 </style>
+</head>
+<body>
+    <header>
+        <h1>CHALLA VINAY</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" id="home-link">Home</a></li>
+            <li><a href="#" id="about-link">About</a></li>
+            <li><a href="#" id="services-link">Projects</a></li>
+	    <li><a href="#" id="education-link">Education</a></li>
+	    <li><a href="#" id="Certificate-link">Certificates</a></li>
+	    <li><a href="#" id="TECHNICALSKILLS-link">TECHNICALSKILLS</a></li>
+	    <li><a href="#" id="resume-link">Resume&CV</a></li>
+            <li><a href="#" id="contact-link">Contact</a></li>
+
+
+        </ul>
+    </nav>
+
+    <div class="container" id="content">
+        <section id="home">
+             <div class="outer-div">
+        <div class="inner1-div">
+		<h1> CHALLA VINAY </h1>
+            <p> <h4>Aspiring Computer Science Graduate </h4> 
+		<h4>Python Full Stack Developer </h4> 
+		<h4>Project Enthusiast</h4>
+		</p>
+        </div>
+        <div class="inner2-div">
+            <img src="C:\Users\NAWAB\Downloads\photo.jpeg" alt="Image Description">
+         </div>
+       </div>
+        </section>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>A Computer Science graduate with a strong interest in full-stack development. I'm passionate about leveraging Python and Django to create 		innovative solutions. My education and project experience have equipped me with the skills to tackle complex challenges in the tech 			industry. Eager to contribute and learn in a dynamic work environment.</p>
+        </section>
+	<section id="resume">
+            <h2>Resume</h2>
+            <p>
+		<a href="C:\Users\NAWAB\Downloads\Challa Vinay Resume.pdf" target="_blank">Download My Resume (PDF)</a>
+		</p>
+        </section>
+
+
+        <section id="services">
+            <h2>Projects</h2>
+            <p><h2>Automation of Timetable Generation</h2> 
+		•	Developed an Automatic Timetable Algorithm for Fiitjee Jr. College.</br>
+		•	Engineered an innovative scheduling program that automated the construction of class schedules for professors and students, 				resulting in a time savings of 20+ hours per week.</br>
+		•	Developed and implemented a user-friendly web portal enabling students to effortlessly access location-based timetables across 				diverse devices, resulting in a 40% increase in student engagement and improved overall productivity. Build by using Html, Css, 			Python programming language with the help of Django framework.</br>
+		•	Executing this program, it generates a timetable schedule without any conflicting times.</br>
+		</p>
+		<p><h2>Student Result Analysis & Management Program</h2>	
+		•	Created a student result analysis and management for the Fiitjee jr. college.</br>
+		•	The primary goal is to assess each student's performance in the college's weekly tests.</br>
+		•	Results are obtained, and students receive their report cards via email.</br>
+		•	Constructed by using the python programming language, Django framework, Html, Css, MySql, and data science tools.</br>
+		•	Constructed the project on the web using the Django framework, and all the data is handled by MySQL, which is integrated with 				Django.</br>
+		</p>
+		<p><h2>Blog Application Development</h2>
+
+		•	Launched a Django based Blog Application.</br>
+		•	Users can easily share their blog posts with others using this dynamic application, which acts as a platform for user creation and 			uploading of new entries.</br>
+		•	Enhances the user experience by harnessing the powerful features of Python and the Django Framework.</br>
+		•	Designed by using html and css for frontend design for aesthetically pleasing and user-friendly interface.</br>
+		•	Project serves as an example of how multiple technologies can be combined to produce a complete and intuitive blogging 					solution.</br>
+
+		</p>
+        </section>
+	<section id="education">
+            
+            <p><h2>CSI WITS JNTU, Hyderbad, Telangana.</h2>                                                                                                              									Graduation: July 2023</br>
+		<h3>Bachelor of Technology in Computer Science & Engineering</h3> </br>
+		Percentage: 72% </br> </br><hr>
+
+		<h2>Kakatiya jr. college, Hyderbad, Telangana.</h2>                                                                                			Graduation: March 2019
+		<h3>Intermediate</h3></br>
+		Percentage: 90% </br></br><hr>
+
+		<h2>Z.P.H.S Edullapally, Mahabubabad, Telangana.</h2>			Graduation: March 2017</br>
+		<h3>SCC</h3></br>
+		Percentage: 80% </br></br>
+		</p>
+        </section>
+	<section id="Certificate">
+            <h2>Certificates</h2>
+            <p> 
+		• District level exbition Participation Certificate, Innovation in science pursuit for inspired research.  	2016</br>
+		• Mandal level Participation Certificate, chekumuki science sambaralu 	2014,2015,2016 </br>
+		• District level Participation Certificate, Maths talent test	2016 </br>
+		• Participaion Certificate in the event Code, MissionEd 	2021 </br>
+		• Certification of Completion in Python Full Stack, QEdge Technologies 	  2023 </br>
+		• Participation Certifcate in the level1:E-Commerce&Tech Quiz, Flipkart GRiD4.0- software devlepment	2022 </br></br>
+
+ 	
+		</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>  	Name: challa vinay</br></br>
+		Phone number: 6309197261</br></br>
+		    Email-id: challavinay251@gmail.com</br></br>
+		    <a href="https://www.linkedin.com/in/challa-vinay-404212273/"><h3>Linkedin</h3></a></br>
+		     <a href="https://github.com/challavinay251/"><h3>Github</a></h3></br>
+	    </p>
+        </section>
+		<section id="TECHNICALSKILLS">
+            <h2>TECHNICALSKILLS</h2>
+            <p>  	
+		Operating System, (Windows )</br>
+		Programming Languages, (Python full stack, core Java, basics of C and C++)</br>
+		Web Designing, (Html, Css, Bootstrap, JavaScript)</br> 
+		Database, (MySql)</br>
+		Tools, (Git & GitHub, Ms Office, Pychram)</br>
+		Frame work, (Django)</br>
+
+		</p>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2023 Web Portal. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript to handle navigation
+
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('section');
+
+        links.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = event.target.getAttribute('id').replace('-link', '');
+                showSection(targetId);
+            });
+        });
+
+        function showSection(sectionId) {
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const sectionToShow = document.getElementById(sectionId);
+            sectionToShow.style.display = 'block';
+        }
+
+        // Show the "Home" section by default
+        showSection('home');
+    </script>
+</body>
+</html>
