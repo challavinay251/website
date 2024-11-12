@@ -3,12 +3,13 @@
 <head>
     <title>Vinay Portal</title>
     <style>
-        /* Global styles */
+        /* Global Styles */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f5;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         header {
@@ -16,23 +17,38 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #444;
+            padding: 10px 0;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        nav {
-            background-color: #444;
-            padding: 15px 0;
-            text-align: center;
+        nav .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px 20px;
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            transition: max-height 0.3s ease;
+            overflow: hidden;
         }
 
         nav li {
-            display: inline;
             margin: 0 15px;
         }
 
@@ -40,25 +56,54 @@
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 15px;
+            padding: 8px 15px;
             transition: background 0.3s ease, color 0.3s ease;
+            font-size: 16px;
         }
 
         nav a:hover {
             background-color: #666;
             border-radius: 8px;
-            color: #f2f2f2;
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                max-height: 0;
+            }
+
+            nav .menu-icon {
+                display: block;
+                text-align: left;
+                padding-left: 20px;
+            }
+
+            nav ul.expanded {
+                max-height: 500px;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            nav a {
+                padding: 15px;
+                font-size: 18px;
+                display: block;
+                text-align: center;
+            }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 20px auto;
             padding: 20px;
         }
 
         section {
             background-color: #fff;
-            padding: 30px;
+            padding: 25px;
             margin: 15px 0;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
@@ -73,55 +118,51 @@
         h1 {
             color: #333;
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
         }
 
         h2 {
             color: #444;
-            font-size: 28px;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
-        h3, h4 {
-            color: #666;
-        }
-
-        p {
+        p, li {
             line-height: 1.7;
             color: #555;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
+            font-size: 16px;
         }
 
         .outer-div {
-            background-color: #eaeaea;
-            padding: 30px;
+            background-color: #e8eaf6;
+            padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Inner div styling */
         .inner1-div {
             padding: 20px;
-            float: left;
-            margin-left: 200px;
+            text-align: left;
+            flex: 1;
+            min-width: 280px;
+            margin: 15px;
         }
 
         .inner2-div {
             padding: 20px;
-            float: right;
+            text-align: center;
+            flex: 1;
+            min-width: 280px;
         }
 
         .inner2-div img {
-            width: 80%; /* Adjust the image width as needed */
-            float: center;
-            max-height: 450px;
-            padding: 5px 10px;
+            width: 80%;
+            max-height: 350px;
+            padding: 10px;
             border-radius: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
@@ -131,33 +172,6 @@
             transform: scale(1.05);
         }
 
-        .inner1-div h1 {
-            font-size: 36px;
-            color: #444;
-        }
-
-        .inner1-div h4 {
-            font-size: 20px;
-            color: #555;
-        }
-
-        /* Button styles */
-        a {
-            color: #0073e6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Smooth scrolling effect */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Resume button */
         .resume-button {
             display: inline-block;
             padding: 10px 20px;
@@ -165,7 +179,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 20px;
             transition: background 0.3s ease;
         }
 
@@ -173,128 +187,62 @@
             background-color: #45a049;
         }
 
-        /* Technical skills list styling */
-        section#technicalskills ul {
-            list-style-type: none;
-            padding-left: 0;
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            font-size: 14px;
         }
 
-        section#technicalskills li {
-            padding: 10px 0;
-        }
-
-        /* Contact section */
-        section#contact {
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            padding: 30px;
-        }
-
-        section#contact p {
-            font-size: 18px;
-            margin-bottom: 10px;
+        /* Contact Section */
+        section#contact p, section#contact a {
+            font-size: 16px;
+            color: #555;
         }
 
         section#contact a {
             color: #0073e6;
+            font-weight: bold;
         }
 
         section#contact a:hover {
             color: #004d99;
             text-decoration: underline;
         }
+		@media (max-width: 768px) {
+    .outer-div {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 
-        /* Media queries for mobile responsiveness */
-        @media only screen and (max-width: 768px) {
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+    .resume-button {
+        width: 80%;
+        padding: 12px;
+        font-size: 18px;
+    }
 
-            nav li {
-                display: block;
-                margin: 10px 0;
-            }
+    .inner1-div, .inner2-div {
+        margin: 10px 0;
+    }
+}
 
-            .outer-div {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .inner1-div, .inner2-div {
-                float: none;
-                margin-left: 0;
-                padding: 0;
-                text-align: center;
-            }
-
-            .inner1-div h1 {
-                font-size: 28px;
-            }
-
-            .inner2-div img {
-                width: 60%;
-                max-height: 300px;
-            }
-
-            section {
-                padding: 15px;
-            }
-
-            .resume-button {
-                width: 80%;
-                padding: 15px;
-                font-size: 18px;
-            }
-
-            h1 {
-                font-size: 28px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            p {
-                font-size: 16px;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            .inner2-div img {
-                width: 50%;
-                max-height: 250px;
-            }
-
-            .resume-button {
-                width: 100%;
-                padding: 20px;
-                font-size: 16px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            h2 {
-                font-size: 20px;
-            }
-
-            p {
-                font-size: 14px;
-            }
-        }
     </style>
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-links").classList.toggle("expanded");
+        }
+    </script>
 </head>
 <body>
     <header>
-        <h1>CHALLA VINAY</h1>
+        CHALLA VINAY
     </header>
 
     <nav>
-        <ul>
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+        <ul id="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Projects</a></li>
@@ -305,15 +253,15 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
     <div class="container" id="content">
+        <!-- Home Section -->
         <section id="home">
             <div class="outer-div">
                 <div class="inner1-div">
                     <h1>CHALLA VINAY</h1>
-                    <h4>Computer Science Graduate</h4> 
-                    <h4>Certified Python Full Stack Developer</h4> 
-                    <h4>Web Wizard Crafting Innovative Solutions</h4>   
+                    <h4>Computer Science Graduate</h4>
+                    <h4>Certified Python Full Stack Developer</h4>
+                    <h4>Web Wizard Crafting Innovative Solutions</h4>
                     <h4>Project Enthusiast</h4>
                 </div>
                 <div class="inner2-div">
@@ -322,8 +270,9 @@
             </div>
         </section>
 
+        <!-- Other Sections -->
         <section id="about">
-            <h1>About Us</h1>
+            <h1>About Me</h1>
             <p>👋 Hi, I'm Challa Vinay, a Computer Science graduate passionate about coding and building cool stuff!
             <br>💻 I love coding in Python, especially using Django for web development.
             <br>🚀 I've worked on projects like automating timetables and managing student results. I've even built a blogging platform from scratch!
@@ -334,51 +283,99 @@
 
         <section id="services">
             <h1>Projects</h1>
-            <ul>
-                <li>Student Result Management System (Python/Django)</li>
-                <li>Automated Timetable Generation (Python)</li>
-                <li>Blogging Platform (Django)</li>
-            </ul>
+             <p><h2>Automation of Timetable Generation</h2> 
+        1) Developed an Automatic Timetable Algorithm for csi Wesley technology and science College.</br>
+        2) Engineered an innovative scheduling program that automated the construction of class schedules for professors and students, resulting in a time savings of 20+ hours per week.</br>
+        3) Developed and implemented a user-friendly web portal enabling students to effortlessly access location-based timetables across diverse devices, resulting in a 40% increase in student engagement and improved overall productivity. Build by using Html, CSS, Python programming language with the help of Django framework</br>
+        4) Executing this program, it generates a timetable schedule without any conflicting times.</br>
+        <a href=" https://github.com/challavinay251/timetablegeneration" target="_blank"><h3>Github repo</a></h3></br>
+        </p>
+        <p><h2>Student Result Analysis & Management Program</h2>   
+        1)  Created a student result evaluation, analysis and management for the Fiitjee jr. college.</br>
+        2)  The primary goal is to assess each student's performance in the college's weekly tests.</br>
+        3) Results are obtained, and students receive their report cards via email.</br>
+        4) Constructed by using the python programming language, Django framework, Html, CSS, MySQL, and data science tools.</br>
+        5) Constructed the project on the web using the Django framework, and all the data is handled by MySQL, which is integrated with Django.</br>
+
+        <a href="https://github.com/challavinay251/Student-Result-Evaluation-Analysis-Management-Program" target="_blank"><h3>Github repo</a></h3></br>
+    </p>
+        <p><h2>Blog Application Development</h2>
+
+        •   Launched a Django based Blog Application.</br>
+        •   Users can easily share their blog posts with others using this dynamic application, which acts as a platform for user creation and uploading of new entries.</br>
+        •   Enhances the user experience by harnessing the powerful features of Python and the Django Framework.</br>
+        •   Designed by using html and css for frontend design for aesthetically pleasing and user-friendly interface.</br>
+        •   Project serves as an example of how multiple technologies can be combined to produce a complete and intuitive blogging solution.</br>
+
+        </p>
         </section>
 
         <section id="education">
-            <h1>Education</h1>
-            <h2>Vignan's Institute of Engineering for Women</h2>
-            <p>Bachelor's in Computer Science (2021-2024)</p>
-        </section>
+		<p><h2>CSI WITS JNTU, Hyderbad, Telangana.</h2>                                                                                                                                 Graduation: July 2023</br>
+        <h3>Bachelor of Technology in Computer Science & Engineering</h3> </br>
+        Percentage: 73% </br> </br><hr>
 
+        <h2>Kakatiya jr. college, Hyderbad, Telangana.</h2>                                                                                Graduation: March 2019
+        <h3>Intermediate</h3></br>
+        Percentage: 90% </br></br><hr>
+
+        <h2>Z.P.H.S Edullapally, Mahabubabad, Telangana.</h2>           Graduation: March 2017</br>
+        <h3>SCC</h3></br>
+        Percentage: 80% </br></br>
+        </p>
+        </section>
+		
         <section id="Certificate">
-            <h1>Certificates</h1>
-            <ul>
-                <li>Python Full Stack Development</li>
-                <li>Virtual Internship Certificates</li>
-                <li>Hackathons and Coding Competitions</li>
-            </ul>
+            
+			<h2>Certificates</h2>
+            <p> 
+        •   District level exbition Participation Certificate, Innovation in science pursuit for inspired research.     2016</br>
+        •   Mandal level Participation Certificate, chekumuki science sambaralu  2014,2015,2016 </br>
+        •   District level Participation Certificate, Maths talent test   2016 </br>
+        •   Participaion Certificate in the event Code, MissionEd    2021 </br>
+        •   Certification of Completion in Python Full Stack, QEdge Technologies     2023 </br>
+        •   Participation Certifcate in the level1:E-Commerce&Tech Quiz, Flipkart GRiD4.0- software devlepment  2022 </br>
+        •   Virtual internship Completion certificate in python development, Coders cave                 2023 </br>
+        •   Virtual internship Completion certificate in web development, Bharath intern                 2023  </br>    
+        •   Virtual internship completion certificate in python development, CodeAlpha                   2023 </br>
+        </br>
+
+    
+        </p>
+			
         </section>
 
         <section id="technicalskills">
-            <h1>Technical Skills</h1>
-            <ul>
-                <li>Python, Django, Flask</li>
-                <li>HTML, CSS, JavaScript</li>
-                <li>SQL, SQLite</li>
-                <li>Git, GitHub</li>
-            </ul>
+           <h2>TECHNICALSKILLS</h2>
+            <p>    
+        • Languages: core Java, Python, Django </br>
+        • Web technologies: HTML, CSS </br>
+        • Database: MySQL, SQL </br>
+        • Operating System: Windows </br> 
+        • Data Analysis: NumPy, Pandas, Matplotlib </br> 
+        • Frame work: Django </br>
+        • Developer Tools: VS Code, Git, GitHub, PyCharm </br> 
+        </p>
         </section>
 
         <section id="resume">
             <h1>Resume & CV</h1>
-            <a href="resume.pdf" download="Challa_Vinay_Resume.pdf" class="resume-button">Download My Resume</a>
+            <a href="resume.pdf" class="resume-button">Download Resume</a>
         </section>
 
         <section id="contact">
             <h1>Contact</h1>
-            <p>Email: <a href="mailto:vinaychalla654@gmail.com">vinaychalla654@gmail.com</a></p>
+             <p>   Name: challa vinay</br></br>
+                   Phone number: 6309197261</br></br>
+                   Email-id: challavinay251@gmail.com</br></br>
+            <a href="https://www.linkedin.com/in/vinay-challa-2a1421243/" target="_blank"><h3>Linkedin</h3></a></br>
+             <a href="https://github.com/challavinay251/" target="_blank"><h3>Github</a></h3></br>
+        </p>
         </section>
     </div>
 
     <footer>
-        <p>&copy; 2024 Vinay Portfolio. All rights reserved.</p>
+        © 2024 Vinay's Portfolio. All Rights Reserved.
     </footer>
 </body>
 </html>
